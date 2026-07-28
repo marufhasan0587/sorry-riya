@@ -1,21 +1,29 @@
-const text = "Sometimes, a simple 'Sorry' carries more truth than a thousand explanations...";
+const text =
+"I never wanted to hurt you. This page carries the words I couldn't say before... ❤️";
+
 let i = 0;
 
-function typingEffect() {
+function typeWriter() {
     if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typingEffect, 50);
+        setTimeout(typeWriter, 45);
     }
 }
 
-window.onload = typingEffect;
+window.onload = function () {
+    typeWriter();
+};
 
 function openLetter() {
-    document.getElementById("letter").style.display = "block";
-    document.querySelector("button").style.display = "none";
+    const letter = document.getElementById("letter");
 
-    document.getElementById("letter").scrollIntoView({
-        behavior: "smooth"
-    });
+    if (letter.style.display === "block") {
+        letter.style.display = "none";
+    } else {
+        letter.style.display = "block";
+        letter.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
 }
